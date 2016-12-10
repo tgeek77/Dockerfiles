@@ -1,0 +1,18 @@
+command: tor
+
+user: tor
+group: tor
+
+secret_env:
+    - '*_KEY'
+    - '*_PORTS'
+
+pre_conf_commands:
+    - onions --setup-hosts
+
+post_conf_commands:
+    - timeout -t 3 tor > /dev/null || true
+    - onions
+    - chown -R tor:tor $HOME
+
+debug: false

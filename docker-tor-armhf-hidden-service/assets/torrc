@@ -1,0 +1,13 @@
+{% for service, conf in setup.items() %}
+HiddenServiceDir /var/lib/tor/hidden_service/{{service}}
+{% for ports in conf['ports'] %}
+# PORT {{service}} {{ports[0]}}
+HiddenServicePort {{ports[0]}} {{service}}:{{ports[1]}}
+{% endfor %}
+{% endfor %}
+
+{% if 'RELAY' in env %}
+ORPort 9001
+{% endif %}
+
+SocksPort 0
