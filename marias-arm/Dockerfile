@@ -1,5 +1,4 @@
 # vim:set ft=dockerfile:
-#FROM debian:jessie
 FROM ioft/armhf-debian:jessie
 
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
