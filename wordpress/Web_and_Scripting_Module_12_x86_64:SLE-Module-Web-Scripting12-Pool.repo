@@ -1,0 +1,8 @@
+[Web_and_Scripting_Module_12_x86_64:SLE-Module-Web-Scripting12-Pool]
+name=SLE-Module-Web-Scripting12-Pool
+enabled=1
+autorefresh=0
+baseurl=https://updates.suse.com/SUSE/Products/SLE-Module-Web-Scripting/12/x86_64/product?R_lVLzOAwoohibxczhF6gT_BVEYb985D-VPB_2F4e_OfOkrtC-EtT1KAPogMbfBk4KJpEnjT-gt1zM3MGnDLCbt4BesM8FkjrOYI12AJdVqa7ykPk8eMxCDOAMV68dEEm0tDFK4QDXT2cQ-gpPIDZB5lUC6wL8w
+type=rpm-md
+keeppackages=0
+service=Web_and_Scripting_Module_12_x86_64

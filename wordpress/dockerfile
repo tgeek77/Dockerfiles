@@ -1,0 +1,25 @@
+# The FROM command tells us which image our new image is based on. There are images out there for any linux distribution from SLES to Debian to Gentoo. 
+# While a container is not a virtual machine, in a lot of ways it acts like one. It still need some of the OS infrastructure in order to work.
+FROM opensuse
+
+# The MAINTAINER line only tells you who wrote the Dockerfile. It is not really necessary but it does fall into the category of best practices.
+MAINTAINER "Jason Evans <jevans@suse.com"
+
+# SLES requires you to copy the *.repo and *.service directories to the directory of your Dockerfile in order to use the RPM's in them.
+
+# The RUN command adds commands like from the command line.
+#RUN zypper refs && zypper refresh
+# install package
+
+RUN     zypper  --non-interactive in apache2 \
+	apache2-mod_php7\
+	php7-mysql
+
+# CMD is the main command of the image. Docker images do not normally use systemd in the normal way so it is generally advised to run services manually.
+# In this example, I am starting apache manually.
+
+CMD 	/usr/sbin/apachectl -D FOREGROUND
+
+# EXPOSE tells docker that this image will natively run on port 80 which is http. 
+
+EXPOSE	80

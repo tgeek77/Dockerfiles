@@ -1,0 +1,23 @@
+[Web_and_Scripting_Module_12_x86_64]
+name=Web_and_Scripting_Module_12_x86_64
+enabled=1
+autorefresh=1
+url = https://scc.suse.com/access/services/1143?credentials=Web_and_Scripting_Module_12_x86_64
+type = ris
+ttl_sec = 86400
+lrf_dat = 1491893650
+repo_1=Web_and_Scripting_Module_12_x86_64:SLE-Module-Web-Scripting12-Debuginfo-Pool
+repo_1_enabled=0
+repo_1_autorefresh=0
+repo_2=Web_and_Scripting_Module_12_x86_64:SLE-Module-Web-Scripting12-Debuginfo-Updates
+repo_2_enabled=0
+repo_2_autorefresh=1
+repo_3=Web_and_Scripting_Module_12_x86_64:SLE-Module-Web-Scripting12-Pool
+repo_3_enabled=1
+repo_3_autorefresh=0
+repo_4=Web_and_Scripting_Module_12_x86_64:SLE-Module-Web-Scripting12-Source-Pool
+repo_4_enabled=0
+repo_4_autorefresh=0
+repo_5=Web_and_Scripting_Module_12_x86_64:SLE-Module-Web-Scripting12-Updates
+repo_5_enabled=1
+repo_5_autorefresh=1
