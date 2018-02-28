@@ -1,0 +1,33 @@
+FROM jsevans/opensuse-tumbleweed-ppcle
+
+MAINTAINER Jason Evans <jevans@suse.com>
+
+ENV TOMCAT_VERSION 9.0.5
+
+RUN zypper --non-interactive in java-1_8_0-openjdk wget tar
+
+ENV JAVA_HOME /usr/lib64/jvm/java-1.8.0-openjdk-1.8.0/jre
+
+# Get Tomcat
+RUN wget --quiet --no-cookies http://apache.rediris.es/tomcat/tomcat-9/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz -O /tmp/tomcat.tgz && \
+tar xzvf /tmp/tomcat.tgz -C /opt && \
+mv /opt/apache-tomcat-${TOMCAT_VERSION} /opt/tomcat && \
+rm /tmp/tomcat.tgz 
+#rm -rf /opt/tomcat/webapps/examples && \
+#rm -rf /opt/tomcat/webapps/docs && \
+#rm -rf /opt/tomcat/webapps/ROOT
+
+# Add admin/admin user
+ADD tomcat-users.xml /opt/tomcat/conf/
+
+ENV CATALINA_HOME /opt/tomcat
+ENV PATH $PATH:$CATALINA_HOME/bin
+
+EXPOSE 8080
+EXPOSE 8009
+
+VOLUME "/opt/tomcat/webapps"
+WORKDIR /opt/tomcat
+
+
+CMD ["/opt/tomcat/bin/catalina.sh", "run"]
